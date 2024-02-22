@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Github Commits</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_to_github_let_s_begin_the_adventure">Welcome to GitHub!\nLet\'s begin the adventure</string>
+    <string name="enter_repo_name">Enter repo name</string>
+    <string name="enter_owner_name">Enter owner name</string>
+    <string name="commits_layout">Commits layout</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="my_message">My Messages</string>
+</resources>
