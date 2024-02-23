@@ -3,16 +3,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/githubRepoInputFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/githubRepoInputFragment"
         android:name="com.example.githubcommits.presentation.fragments.GithubRepoInputFragment"
         android:label="GithubRepoInputFragment"
-        tools:layout="@layout/fragment_github_repo_input"/>
+        tools:layout="@layout/fragment_github_repo_input">
+        <action
+            android:id="@+id/action_githubRepoInputFragment_to_githubCommitsFragment"
+            app:destination="@id/githubCommitsFragment" >
+            <argument
+                android:name="owner"
+                app:argType="string"
+                app:nullable="true" />
+            <argument
+                android:name="repo"
+                app:argType="string"
+                app:nullable="true"/>
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/githubCommitsFragment"
         android:name="com.example.githubcommits.presentation.fragments.GithubCommitsFragment"
         android:label="GithubCommitsFragment"
-        tools:layout="@layout/fragment_github_commits"/>
+        tools:layout="@layout/fragment_github_commits">
+        <argument
+            android:name="owner"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
+        <argument
+            android:name="repo"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.githubcommits.presentation.fragments.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_githubRepoInputFragment"
+            app:destination="@id/githubRepoInputFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
