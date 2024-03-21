@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.githubcommits.databinding.FragmentGithubCommitsBinding
 import com.example.githubcommits.domain.utils.FILTER_DATA_KEY
 import com.example.githubcommits.domain.utils.FilterData
+import com.example.githubcommits.domain.utils.ISO_8601_DATE_FORMAT
 import com.example.githubcommits.presentation.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -46,7 +47,7 @@ class GithubCommitsFragment : BaseFragment<FragmentGithubCommitsBinding>() {
             } else {
                 bundle.getParcelable(FILTER_DATA_KEY, FilterData::class.java)
             }
-            val formatted = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+            val formatted = SimpleDateFormat(ISO_8601_DATE_FORMAT, Locale.getDefault())
             val fromDate = if (filterData?.fromDate != null) formatted.format(filterData.fromDate) else null
             val toDate =  if (filterData?.toDate != null) formatted.format(filterData.toDate) else null
             viewModel.getCommits(args.owner, args.repo, filterData?.author, filterData?.email, fromDate, toDate)
