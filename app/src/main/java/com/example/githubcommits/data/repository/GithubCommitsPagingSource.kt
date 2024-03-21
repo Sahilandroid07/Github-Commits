@@ -12,13 +12,17 @@ const val NETWORK_PAGE_SIZE = 30
 class GithubCommitsPagingSource(
     private val service: GitApiService,
     private val owner: String?,
-    private val repo: String?
+    private val repo: String?,
+    private val author: String?,
+    private val committer: String?,
+    private val since: String?,
+    private val until: String?
 ) : PagingSource<Int, GithubCommitsRemoteResponseItem>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, GithubCommitsRemoteResponseItem> {
         val position = params.key ?: GITHUB_STARTING_PAGE_INDEX
         return try {
-            val response = service.getCommits(owner, repo, NETWORK_PAGE_SIZE.toString(), position.toString())
+            val response = service.getCommits(owner, repo, NETWORK_PAGE_SIZE.toString(), position.toString(), author, committer, since, until)
             if (response.isSuccessful) {
                 response.body()?.let {
                     LoadResult.Page(

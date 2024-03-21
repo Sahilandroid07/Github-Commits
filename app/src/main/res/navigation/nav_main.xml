@@ -38,6 +38,9 @@
             app:argType="string"
             app:nullable="true"
             android:defaultValue="null" />
+        <action
+            android:id="@+id/action_githubCommitsFragment_to_filterBottomSheetFragment"
+            app:destination="@id/filterBottomSheetFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -50,4 +53,9 @@
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <dialog
+        android:id="@+id/filterBottomSheetFragment"
+        android:name="com.example.githubcommits.presentation.fragments.FilterBottomSheetFragment"
+        android:label="FilterBottomSheetFragment"
+        tools:layout="@layout/fragment_filter_bottom_sheet"/>
 </navigation>

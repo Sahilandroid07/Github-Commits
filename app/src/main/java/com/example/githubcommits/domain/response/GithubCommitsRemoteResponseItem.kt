@@ -1,5 +1,10 @@
 package com.example.githubcommits.domain.response
 
+import android.os.Build
+import androidx.annotation.RequiresApi
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
+
 data class GithubCommitsRemoteResponseItem(
     val author: AuthorX,
     val comments_url: String,
@@ -91,4 +96,10 @@ data class GithubCommitsRemoteResponseItem(
         val signature: Any,
         val verified: Boolean
     )
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun formattedDate(): String {
+        val zonedTime = ZonedDateTime.parse(commit.committer.date)
+        return zonedTime.format(DateTimeFormatter.ofPattern("EEEE-dd-MMMM-u HH:mm"))
+    }
 }

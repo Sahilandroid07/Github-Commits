@@ -13,6 +13,10 @@ interface GitApiService {
         @Path("owner") owner: String?,
         @Path("repo") repo: String?,
         @Query("per_page") perPage: String?,
-        @Query("page") page: String?
+        @Query("page") page: String?,
+        @Query("author") author: String?,
+        @Query("committer") committer: String?,
+        @Query("since") since: String?,
+        @Query("until") until: String?,
     ): Response<List<GithubCommitsRemoteResponseItem>>
 }

@@ -99,7 +99,7 @@
                 android:layout_marginBottom="20dp"
                 android:fontFamily="@font/share_tech_mono_regular"
                 tools:text="@string/date"
-                android:text="@{data.Commit.committer.date}"
+                android:text="@{data.formattedDate()}"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@id/tvMessage"

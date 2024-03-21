@@ -18,7 +18,11 @@ class GithubApiRepositoryImpl @Inject constructor(
 ) : GithubApiRepository {
     override suspend fun getCommits(
         owner: String?,
-        repo: String?
+        repo: String?,
+        author: String?,
+        committer: String?,
+        since: String?,
+        until: String?
     ): Flow<PagingData<GithubCommitsRemoteResponseItem>> {
         return Pager(
             config = PagingConfig(
@@ -26,7 +30,7 @@ class GithubApiRepositoryImpl @Inject constructor(
                 prefetchDistance = NETWORK_PAGE_SIZE,
                 initialLoadSize = NETWORK_PAGE_SIZE
             ),
-            pagingSourceFactory = { GithubCommitsPagingSource(service, owner, repo) }
+            pagingSourceFactory = { GithubCommitsPagingSource(service, owner, repo, author, committer, since, until) }
         ).flow.flowOn(Dispatchers.IO)
     }
 }

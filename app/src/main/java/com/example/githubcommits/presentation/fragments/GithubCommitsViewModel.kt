@@ -23,9 +23,16 @@ class GithubCommitsViewModel @Inject constructor(
     private val _commitsLiveData = MutableLiveData<PagingData<GithubCommitsRemoteResponseItem>>()
     val commitsLiveData: LiveData<PagingData<GithubCommitsRemoteResponseItem>> = _commitsLiveData
 
-    fun getCommits(owner: String?, repo: String?) {
+    fun getCommits(
+        owner: String?,
+        repo: String?,
+        author: String? = null,
+        committer: String? = null,
+        since: String? = null,
+        until: String? = null
+    ) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.getCommits(owner, repo).cachedIn(viewModelScope).collect {
+            repository.getCommits(owner, repo, author, committer, since, until).cachedIn(viewModelScope).collect {
                 _commitsLiveData.postValue(it)
             }
         }

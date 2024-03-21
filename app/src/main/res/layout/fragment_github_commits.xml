@@ -32,8 +32,7 @@
                 android:onClick="@{listener::onClick}"
                 android:src="@drawable/ic_back"
                 android:padding="15dp"
-                android:background="@drawable/ripple_effect"
-                android:backgroundTint="@android:color/transparent"/>
+                android:background="@drawable/new_ripple_effect_2"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvCommit"
@@ -51,8 +50,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_filter"
                 android:onClick="@{listener::onClick}"
-                android:background="@drawable/ripple_effect"
-                android:backgroundTint="@android:color/transparent"
+                android:background="@drawable/new_ripple_effect_2"
                 android:layout_gravity="end"
                 android:padding="15dp"/>
 
@@ -68,6 +66,17 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

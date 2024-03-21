@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_radius_bg"
+        tools:context=".presentation.fragments.FilterBottomSheetFragment">
+        <!-- region bottom sheet -->
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginHorizontal="80dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/splash_bg"
+            app:layout_constraintEnd_toEndOf="@id/tvSort"
+            app:layout_constraintStart_toStartOf="@id/tvSort"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/share_tech_mono_regular"
+            android:text="@string/sort_and_filter"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="@id/endGuide"
+            app:layout_constraintStart_toStartOf="@id/startGuide"
+            app:layout_constraintTop_toTopOf="@id/view2" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etAuthor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:maxLines="1"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:background="@drawable/round_with_blue_stroke"
+            android:fontFamily="@font/share_tech_mono_regular"
+            android:hint="@string/sort_by_author"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@id/etEmail"
+            app:layout_constraintStart_toStartOf="@id/startGuide"
+            app:layout_constraintTop_toBottomOf="@id/tvSort" />
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_with_blue_stroke"
+            android:fontFamily="@font/share_tech_mono_regular"
+            android:hint="@string/sort_by_email"
+            android:padding="15dp"
+            android:maxLines="1"
+            android:inputType="textEmailAddress"
+            android:imeOptions="actionDone"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/etAuthor"
+            app:layout_constraintEnd_toEndOf="@id/endGuide"
+            app:layout_constraintStart_toEndOf="@id/etAuthor"
+            app:layout_constraintTop_toTopOf="@id/etAuthor" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/share_tech_mono_regular"
+            android:textColor="@color/black"
+            android:text="@string/sort_by_date"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/startGuide"
+            app:layout_constraintTop_toBottomOf="@id/etAuthor" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFrom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/from"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@id/etDateFrom"
+            app:layout_constraintEnd_toEndOf="@id/etDateFrom"
+            app:layout_constraintStart_toStartOf="@id/etDateFrom"
+            app:layout_constraintTop_toBottomOf="@id/tvDate" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvFrom"
+            app:layout_constraintEnd_toEndOf="@id/etDateTo"
+            app:layout_constraintStart_toStartOf="@id/etDateTo"
+            app:layout_constraintTop_toTopOf="@id/tvFrom" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/etDateFrom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/ripple_round_with_blue_stroke"
+            android:drawableEnd="@drawable/ic_calender"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/share_tech_mono_regular"
+            android:hint="@string/dd_mm_yyyy"
+            android:padding="15dp"
+            android:onClick="@{listener.onClick}"
+            android:textColorHint="@color/white_opacity_60"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@id/etDateTo"
+            app:layout_constraintStart_toStartOf="@id/startGuide"
+            app:layout_constraintTop_toBottomOf="@id/tvFrom" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/etDateTo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/ripple_round_with_blue_stroke"
+            android:drawableEnd="@drawable/ic_calender"
+            android:drawablePadding="10dp"
+            android:textColorHint="@color/white_opacity_60"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{listener.onClick}"
+            android:fontFamily="@font/share_tech_mono_regular"
+            android:hint="@string/dd_mm_yyyy"
+            android:padding="15dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/etDateFrom"
+            app:layout_constraintEnd_toEndOf="@id/endGuide"
+            app:layout_constraintStart_toEndOf="@id/etDateFrom"
+            app:layout_constraintTop_toTopOf="@id/etDateFrom" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnApply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/ripple_round_with_blue_stroke"
+            android:fontFamily="@font/share_tech_mono_regular"
+            android:text="@string/apply"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:onClick="@{listener.onClick}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/endGuide"
+            app:layout_constraintStart_toStartOf="@id/startGuide"
+            app:layout_constraintTop_toBottomOf="@id/etDateFrom" />
+
+        <!-- endregion bottom sheet -->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

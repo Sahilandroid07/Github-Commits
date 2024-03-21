@@ -7,5 +7,12 @@ import kotlinx.coroutines.flow.Flow
 
 interface GithubApiRepository {
 
-    suspend fun getCommits(owner: String?, repo: String?): Flow<PagingData<GithubCommitsRemoteResponseItem>>
+    suspend fun getCommits(
+        owner: String?,
+        repo: String?,
+        author: String?,
+        committer: String?,
+        since: String?,
+        until: String?
+    ): Flow<PagingData<GithubCommitsRemoteResponseItem>>
 }
